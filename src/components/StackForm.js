@@ -7,8 +7,10 @@ import {
   FormLabel,
   Button
 } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { addStack } from '../actions';
 
-export default class StackForm extends Component {
+class StackForm extends Component {
   constructor (props) {
     super(props);
 
@@ -33,6 +35,10 @@ export default class StackForm extends Component {
 
   handleChange (event) {
     this.setState({ title: event.target.value });
+  }
+
+  addStack() {
+      this.props.addStack(this.state);
   }
 
   render () {
@@ -65,8 +71,10 @@ export default class StackForm extends Component {
         </Form>
         <br />
         <Button onClick={() => this.addCard()}>Add Card</Button>{' '}
-        <Button onClick={() => {}}>Save Cards</Button>
+        <Button onClick={() => this.addStack()}>Save Stack</Button>
       </div>
     );
   }
 }
+
+export default connect(null, { addStack })(StackForm);
