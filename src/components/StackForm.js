@@ -42,7 +42,6 @@ class StackForm extends Component {
   }
 
   render () {
-    console.log('TCL: StackForm -> render -> this.state', this.state);
     return (
       <div>
         <Link to='/' className='link-home'>
