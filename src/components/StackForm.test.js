@@ -40,6 +40,10 @@ describe('StackForm component', () => {
         it('updates the title in state', () => {
             expect(stackForm.state().title).toEqual(CHANGED_TITLE )
         })
+
+        afterEach(()=> {
+            stackForm.setState({cards: []})
+        })
     })
 
     describe('when adding a new card', () => {
@@ -61,6 +65,34 @@ describe('StackForm component', () => {
         it('renders the prompt call to action', () => {
             expect(stackForm.find('FormLabel').at(2).props().children).toEqual('Answer:');
         })
+
+    })
+
+    describe('and updating the card prompt', () => {
+        const CHANGED_PROMPT = 'Changed Prompt';
+
+        beforeEach(()=> {
+            stackForm.find('FormControl').at(1).simulate('change', {target: { value: CHANGED_PROMPT}})
+        })
+
+        it('updates the prompt in the state', () => {
+            expect(stackForm.state().cards[0].prompt).toEqual(CHANGED_PROMPT)
+        })
+
+    })
+
+
+    describe('and updating the card prompt', () => {
+        const CHANGED_ANSWER = 'Changed Answer';
+
+        beforeEach(()=> {
+            stackForm.find('FormControl').at(2).simulate('change', {target: { value: CHANGED_ANSWER}})
+        })
+
+        it('updates the prompt in the state', () => {
+            expect(stackForm.state().cards[0].answer).toEqual(CHANGED_ANSWER)
+        })
+
     })
 
 
