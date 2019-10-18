@@ -10,7 +10,7 @@ import {
 import { connect } from 'react-redux';
 import { addStack } from '../actions';
 
-class StackForm extends Component {
+export class StackForm extends Component {
   constructor (props) {
     super(props);
 

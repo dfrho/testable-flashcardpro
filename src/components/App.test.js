@@ -9,8 +9,8 @@ describe('App component', () => {
         expect(app.find('h2').text()).toEqual('FlashCard Pro');
     });
 
-    it('renders the Stacklist', () => {
-        expect(app.find('Connect(Stacklist)').exists()).toBe(true);
+    it('renders the StackList', () => {
+        expect(app.find('Connect(StackList)').exists()).toBe(true);
     });
 
     it('renders a Link to create new stcks', () => {
