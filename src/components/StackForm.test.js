@@ -47,9 +47,6 @@ describe('StackForm component', () => {
     })
 
     describe('when adding a new card', () => {
-        const PROMPT = 'Why did the chicken cross the road?';
-        const ANSWER = 'To get to the other side.';
-
         beforeEach(()=> {
             stackForm.find('Button').at(0).simulate('click')
         })
@@ -75,7 +72,7 @@ describe('StackForm component', () => {
             stackForm.find('FormControl').at(1).simulate('change', {target: { value: CHANGED_PROMPT}})
         })
 
-        it('updates the prompt in the state', () => {
+        it('updates the card prompt in the state', () => {
             expect(stackForm.state().cards[0].prompt).toEqual(CHANGED_PROMPT)
         })
 
@@ -89,7 +86,7 @@ describe('StackForm component', () => {
             stackForm.find('FormControl').at(2).simulate('change', {target: { value: CHANGED_ANSWER}})
         })
 
-        it('updates the prompt in the state', () => {
+        it('updates the card prompt in the state', () => {
             expect(stackForm.state().cards[0].answer).toEqual(CHANGED_ANSWER)
         })
 
