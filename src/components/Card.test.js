@@ -31,10 +31,6 @@ describe('Card component', () => {
             card.find('div').at(1).simulate('click');
         })
 
-        it('updates reveal to be true', () => {
-            expect(card.state().showAnswer).toBe(true);
-        })
-
         it('reveals the answer', () => {
             expect(card.find('.card-answer h4').hasClass('text-revealed')).toBe(true);
         })

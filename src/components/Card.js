@@ -1,26 +1,28 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-class Card extends Component {
-  constructor(props) {
-    super(props);
+const Card = ({ card }) => {
+  // constructor(props) {
+  //   super(props);
 
-    this.state = {
-      showAnswer: false
-    };
-  }
+  //   this.state = {
+  //     showAnswer: false
+  //   };
+  // }
 
-  handleClick = () => {
-    this.setState({
-      showAnswer: !this.state.showAnswer
-    });
+  const [ showAnswer, setShowAnswer ] = useState(false);
+
+  const handleClick = () => {
+    // this.setState({
+    //   showAnswer: !this.state.showAnswer
+    // });
+    setShowAnswer(!showAnswer);
   };
 
-  render() {
-    const { prompt, answer } = this.props.card;
+    const { prompt, answer } = card;
 
     return (
       <div className="card">
-        <div className={'card-prompt'} onClick={() => this.handleClick()}>
+        <div className={'card-prompt'} onClick={() => handleClick()}>
           <h4>
             {prompt}
           </h4>
@@ -28,14 +30,14 @@ class Card extends Component {
 
         <div className={'card-answer'}>
           <h4
-            className={this.state.showAnswer ? 'text-revealed' : 'text-hidden'}
+            className={showAnswer ? 'text-revealed' : 'text-hidden'}
           >
             {answer}
           </h4>
         </div>
       </div>
     );
-  }
+
 }
 
 export default Card;
