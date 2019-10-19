@@ -1,20 +1,9 @@
 import React, { useState } from 'react';
 
 const Card = ({ card }) => {
-  // constructor(props) {
-  //   super(props);
-
-  //   this.state = {
-  //     showAnswer: false
-  //   };
-  // }
-
   const [ showAnswer, setShowAnswer ] = useState(false);
 
   const handleClick = () => {
-    // this.setState({
-    //   showAnswer: !this.state.showAnswer
-    // });
     setShowAnswer(!showAnswer);
   };
 
